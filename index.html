@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+ var ArrayOfTenIntegers = [19, 20, 50, 39, 3, 1093, 89, 1, 54, 90];
+
+function SumArray(array) {
+    let sum = array.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    document.write("Tổng: " + sum + "<br>");
+}
+
+SumArray(ArrayOfTenIntegers);
+
+let maximum = ArrayOfTenIntegers[0];
+for (let i = 0; i < ArrayOfTenIntegers.length; i++) {
+    if (ArrayOfTenIntegers[i] > maximum) {
+        maximum = ArrayOfTenIntegers[i];
+    }
+}
+document.write("Giá trị lớn nhất: " + maximum + "<br>");
+
+let min = ArrayOfTenIntegers[0];
+for (let i = 0; i < ArrayOfTenIntegers.length; i++) {
+    if (ArrayOfTenIntegers[i] < min) {
+        min = ArrayOfTenIntegers[i];
+    }
+}
+document.write("Giá trị nhỏ nhất: " + min + "<br>");
+
+function maxIndex(array) {
+    let max = array[0];
+    let index = 0;
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] > max) {
+            max = array[i];
+            index = i;
+        }
+    }
+    return index;
+}
+document.write("Chỉ số của giá trị lớn nhất trong mảng: " + maxIndex(ArrayOfTenIntegers) + "<br>");
+
+function minIndex(array) {
+    let min = array[0];
+    let index = 0;
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] < min) {
+            min = array[i];
+            index = i;
+        }
+    }
+    return index;
+}
+document.write("Chỉ số của giá trị nhỏ nhất trong mảng: " + minIndex(ArrayOfTenIntegers) + "<br>");
+function countEvenNumbers(arr) {
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 === 0) {
+            count++; 
+        }
+    }
+    return count; 
+}
+document.write("Số lượng số chẵn của mảng: " + countEvenNumbers(ArrayOfTenIntegers) + "<br>");
+
+
+function countOddNumbers(arr) {
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 !== 0) {
+            count++; 
+        }
+    }
+    return count; 
+}
+document.write("Số lượng số lẻ của mảng: " + countOddNumbers(ArrayOfTenIntegers) + "<br>");
+ 
+function AverageArray(array) {
+    if (array.length === 0) {
+        document.write("Mảng rỗng.<br>");
+        return null;
+    }
+    const sum = array.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    const average = sum / array.length;
+    return average;
+}
+document.write("Trung bình cộng: " + AverageArray(ArrayOfTenIntegers) + "<br>");
+
+ 
+function isPrime(num) {
+    if (num <= 1) return false;
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            return false; 
+        }
+    }
+    return true; 
+}
+
+
+function checkPrime(inputArray) {
+    for (let i = 0; i < inputArray.length; i++) {
+        if (isPrime(inputArray[i])) {
+            return true; 
+        }
+    }
+    return false;
+}
+
+function printPrimes(inputArray) {
+    return inputArray.filter(isPrime); 
+}
+
+function filterGreaterThan10(inputArray) {
+    return inputArray.filter(num => num > 10); 
+}
+
+const ArrayOfIntegers = [19, 20, 50, 39, 3, 1093, 89, 1, 54, 90];
+
+
+document.write("Mảng có chứa số nguyên tố: " + checkPrime(ArrayOfIntegers) + "<br>");
+document.write("Số nguyên tố trong mảng: " + printPrimes(ArrayOfIntegers).join(", ") + "<br>");
+document.write("Các số lớn hơn 10 trong mảng: " + filterGreaterThan10(ArrayOfIntegers).join(", ") + "<br>");
+
+    </script>
+</body>
+</html>
